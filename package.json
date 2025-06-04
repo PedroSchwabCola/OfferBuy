@@ -1,23 +1,19 @@
 {
-  "name": "alli",
+  "name": "servidor-gemini",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PedroSchwabCola/alli.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PedroSchwabCola/alli/issues"
-  },
-  "homepage": "https://github.com/PedroSchwabCola/alli#readme",
-  "description": "",
   "dependencies": {
-    "firebase": "^11.8.1"
-  }
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "description": ""
 }
