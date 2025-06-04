@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat com IA Gemini</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+  <h2>Fale com a IA</h2>
+  <input id="userInput" type="text" placeholder="Digite sua pergunta..." style="width: 70%; padding: 10px;" />
+  <button onclick="sendToGemini()" style="padding: 10px;">Enviar</button>
+  <div id="responseArea" style="margin-top: 20px; background: #f0f0f0; padding: 15px; border-radius: 5px;"></div>
+
+  <script>
+    async function sendToGemini() {
+      const input = document.getElementById("userInput").value;
+      const responseArea = document.getElementById("responseArea");
+      responseArea.innerHTML = "Pensando...";
+
+      try {
+        const response = await fetch("http://localhost:3000/gemini", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: input })
+        });
+
+        const data = await response.json();
+        responseArea.innerHTML = data.resposta || "Sem resposta da IA.";
+      } catch (error) {
+        responseArea.innerHTML = "Erro ao conectar com a IA.";
+      }
+    }
+  </script>
+</body>
+</html>
